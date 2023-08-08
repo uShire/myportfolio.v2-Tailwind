@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: RalewayFont;
+    src: url("../fonts/Raleway-Italic-VariableFont_wght (2).woff");
+}
+@font-face {
+    font-family: RalewayFont1;
+    src: url("../fonts/Raleway-VariableFont_wght.woff");
+}
+
+body{
+    font-family:RalewayFont1;
+}
+
+.container{
+    max-width:90rem;
+    padding:1rem;
+    margin:0 auto;
+    width:100%;
+}
+
+@layer components{
+    .header{
+        /* @apply bg-dark relative lg:w-[300px] lg:h-[100vh] */
+        background: #2C363F;
+        position:fixed;
+        width:100%;
+        @media screen and (min-width:1024px){
+            width:300px;
+            height:100vh;
+        }
+    }
+    .header__wrapper{
+        @apply flex items-center justify-between lg:flex-col lg:h-[100vh]
+    }
+    .header .branding img{
+        @apply w-[6rem]
+    }
+    .header__nav{
+        @apply bg-dark absolute top-[5.7rem] left-0 w-full text-center max-h-[0rem] overflow-hidden ease-in duration-[.5s]
+        lg:static lg:max-h-[unset] lg:w-fit 
+    }
+    .header__nav.open{
+        @apply max-h-[50rem] border-b-[5px] border-b-peach ease-in duration-[.5s] lg:border-b-0
+    }
+    .header__nav ul li,   .header__actions ul li{
+        @apply py-[1rem]
+    }
+    .header__nav ul li{
+        @apply w-fit mx-auto lg:py-[2rem]  
+    }
+    .header__nav ul.nav, .header__actions ul.social{
+        @apply py-[2rem]
+    }
+    .header__nav ul.nav li a{
+        @apply text-light
+    }
+    .header__nav ul li a,.header__actions ul li a{
+        @apply text-[1.8rem] w-full
+    }
+    .header__nav ul li a{
+        @apply lg:text-[2rem]
+    }
+    .header__nav ul.nav li{
+        @apply border-t-[2px] border-t-transparent border-b-[2px] border-b-transparent
+    }
+    .header__nav ul.nav li.active{
+        @apply border-t-[2px] border-t-red-400 border-b-[2px] border-b-red-400
+    }
+    .header__nav ul.nav li.active a{
+       @apply text-peach;
+    }
+    .header__nav ul.nav li:hover a{
+        @apply text-peach  ease-in duration-[.2s]
+    }
+    .header__nav ul.social, .header__actions ul.social{
+        @apply border-t-[1px] border-t-gray-500
+    }
+    .header__nav ul.social li#linkedin a, .header__actions ul.social li#linkedin a{
+        @apply text-[#0072b1]
+    }
+    .header__nav ul.social li#email a, .header__actions ul.social li#email a{
+        @apply text-[#ffa700]
+    }
+    .header__nav ul.social li#phone a,  .header__actions ul.social li#phone a{
+        @apply text-[#5BC236]
+    }
+    .header__nav ul.social{
+        @apply flex lg:hidden
+    }
+    .header__actions{
+        @apply w-full
+    }
+    .header__actions ul.social{
+        @apply lg:flex lg:justify-around
+    }
+    .header__actions{
+        @apply hidden lg:block
+    }
+    ul.social li:hover{
+        @apply scale-[1.1]
+    }
+    .toggle__menu{
+        @apply flex flex-col gap-[.2rem] lg:hidden
+    }
+    .toggle__menu span{
+        @apply w-[2rem] h-[.2rem] bg-light rounded-full ease-in duration-[.5s]
+    }
+    .toggle__menu.open span:first-child{
+        width:1.5rem;
+        transform:translate(0,7px) rotate(225deg);
+        transition:.5s ease;
+    }
+    .toggle__menu.open span:nth-child(2){
+        opacity:0;
+        transition:.5s ease;
+    }
+    .toggle__menu.open span:last-child{
+        width:1.5rem;
+        transform:translate(0,-6px) rotate(-225deg);
+        transition:.5s ease;
+    }
+}
